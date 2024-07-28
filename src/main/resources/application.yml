@@ -1,0 +1,38 @@
+spring:
+  data:
+    mongodb:
+      database: ${MONGO_DATABASE}
+      uri: "mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_CLUSTER}"
+      auto-index-creation: true
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+  servlet:
+    multipart:
+      max-file-size: 256MB
+      max-request-size: 256MB
+      enabled: true
+
+server:
+  servlet:
+    context-path: "/api/v2"
+
+cyan:
+  app:
+    jwtSecret: ${JWT_SECRET}
+    jwtExpirationMs: 86400000
+
+springdoc:
+  api-docs:
+    path: "/api-docs"
